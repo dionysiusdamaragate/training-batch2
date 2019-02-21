@@ -45,6 +45,8 @@
                 <div class="actions-toolbar">
                     <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Sign In') ?></span></button></div>
                     <div class="secondary"><a class="action remind" href="<?php /* @escapeNotVerified */ echo $block->getForgotPasswordUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Forgot Your Password?') ?></span></a></div>
+                    <hr>
+                    <a href="<?php echo $this->getUrl('training/index/index') ?>"><button class="action login primary" type="button">New Form</button></a>
                 </div>
             </fieldset>
         </form>

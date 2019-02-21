@@ -1,0 +1,51 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+?>
+<div class="block block-customer-login" style="width: 35%">
+	<h3><strong>Additional</strong> Form</h3>
+	<hr>
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+	<form action="<?php echo $block->getUrl('training/employee/create'); ?>" method="post">        
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+                <div class="field text required">
+                    <label for="text" class="label"><span>Nama</span></label>
+                    <div class="control">
+                        <input type="text" class="input-text" id="text " title="<?php /* @escapeNotVerified */ echo __('Your Full Name') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field email required">
+                    <label for="email" class="label"><span>Email</span></label>
+                    <div class="control">
+                        <input name="email" type="email" class="input-text" id="text " title="<?php /* @escapeNotVerified */ echo __('Your Email') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field text required">
+                    <label for="text" class="label"><span>Division</span></label>
+                    <div class="control">
+                        <input name="division" type="text" class="input-text" id="text " title="<?php /* @escapeNotVerified */ echo __('Your Division') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?php echo $block->getChildHtml('form_additional_info'); ?>
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Submit') ?></span></button></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
