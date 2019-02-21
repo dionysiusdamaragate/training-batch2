@@ -1,0 +1,24 @@
+
+<table>
+    <thead>
+        <tr>
+            <th><?php echo __('Name')?></th>
+            <th><?php echo __('Email')?></th>
+            <th><?php echo __('Division')?></th>
+            <th><?php echo __('Status')?></th>
+            <th><?php echo __('Order Container')?></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->getTraineeCollection() as $trainees) : ?>
+        <tr>
+            <td><?php echo $trainees->getName() ?></td>
+            <td><?php echo $trainees->getEmail() ?></td>
+            <td><?php echo $trainees->getDivision() ?></td>
+            <td><?php echo $trainees->getStatus() ?></td>
+            <td><?php echo $trainees->getOrder_container() ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
