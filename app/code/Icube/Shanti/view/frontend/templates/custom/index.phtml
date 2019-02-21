@@ -1,0 +1,32 @@
+<div>
+    <form class = "form" action = "<?php echo $this->getUrl('training/custom/create'); ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off" ?>
+        <fieldset class="fieldset form">
+            <div class="field name required">
+                <label class="label" for="nama"><span><?php /* @escapeNotVerified */ echo __('Nama') ?></span></label>
+                    <div class="control">
+                        <input name="nama" id="nama" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Nama') ?>" data-validate="{required:true}">
+                    </div>
+            </div>
+
+            <div class="field email required">
+                <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+                    <div class="control">
+                        <input name="email" id="email" type="text" class="input-email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+            </div>
+
+            <div class="field division required">
+                <label class="label" for="divisi"><span><?php /* @escapeNotVerified */ echo __('Divisi') ?></span></label>
+                    <div class="control">
+                        <input name="divisi" id="divisi" type="text" class="input-divisi" title="<?php /* @escapeNotVerified */ echo __('Divisi') ?>" data-validate="{required:true}">
+                    </div>
+            </div>
+
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" name="submit" id="submit"><span><?php /* @escapeNotVerified */ echo __('Submit') ?></span></button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
