@@ -21,6 +21,12 @@ class InstallSchema implements InstallSchemaInterface
             ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
             'Id Employee'
         )->addColumn(
+            'nama',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            [],
+            'Nama'
+        )->addColumn(
             'email',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,

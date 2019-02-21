@@ -9,6 +9,7 @@ class Create extends Action
     public function execute()
     {
         $post       = (array) $this->getRequest()->getPost();
+	$nama      = $post['nama'];
         $email      = $post['email'];
         $division   = $post['division'];
 
@@ -17,7 +18,7 @@ class Create extends Action
             ->get('Magento\Framework\App\ResourceConnection');
             $connection= $this->_resources->getConnection();
             $themeTable = $this->_resources->getTableName('icube_employee');
-       $sql = "INSERT INTO $themeTable (email,division) VALUES ('$email','$division')";
+       $sql = "INSERT INTO $themeTable (nama,email,division) VALUES ('$nama','$email','$division')";
        $connection->query($sql);
        $this->_redirect('training/employee/index');
     }

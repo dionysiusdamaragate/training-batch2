@@ -12,10 +12,12 @@ table th { background: #26a8e0; color: #FFF; }
 <table>
     <thead>
         <tr>
-	    <th class="text-center">No</th>
-            <th><?php echo __('Name')?></th>
-            <th><?php echo __('Division')?></th>
-	    <th><?php echo __('Status')?></th>
+    	    <th class="text-center">No</th>
+                <th><?php echo __('Name')?></th>
+    	    <th><?php echo __('Email')?></th>
+                <th><?php echo __('Division')?></th>
+    	    <th><?php echo __('Status')?></th>
+    	    <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,16 +25,20 @@ table th { background: #26a8e0; color: #FFF; }
         <?php foreach ($this->getEmployeeCollection() as $employees) : ?>
         <tr>
 	    <td class="text-center"><?php echo $no ?></td>
-        <td><?php echo $employees->getEmail() ?></td>
+	    <td><?php echo $employees->getNama() ?></td>
+            <td><?php echo $employees->getEmail() ?></td>
 	    <td><?php echo $employees->getDivision() ?></td>
         <td>
-        <?php if($employees->getStatus() == 1): 
-        echo '<span style="color: green; ">Employee</span>'; 
-        else:
-        echo '<span style="color: red; ">Unemployee</span>';
-        endif;
-        ?>
-	<?php $no++; ?>
+            <?php if($employees->getStatus() == 1): 
+            echo '<span style="color: green; ">Employee</span>'; 
+            else:
+            echo '<span style="color: red; ">Unemployee</span>';
+            endif;
+            ?>
+        </td>
+        <td><a href="http://facebook.com/<?php echo $employees->getId_employee ?> ">Hapus</a></td>
+	    <?php $no++; ?>
+        </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
