@@ -10,7 +10,7 @@
 			<resource>Icube_Training::config</resource>
 			<group id="general" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
 				<label>Setting</label>
-				<field id="rand_number" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1">
+				<field id="rand_number" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
 					<label>Status</label>
 					<source_model>Icube\Training\Model\Config\Source\Employee</source_model>
 				</field>

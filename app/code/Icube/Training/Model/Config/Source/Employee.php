@@ -7,10 +7,6 @@ use Magento\Framework\Option\ArrayInterface;
 class Employee implements ArrayInterface
 {
 
-/*
- * Option getter
- * @return array
- */
 public function toOptionArray()
 {
     $arr = $this->toArray();
@@ -24,10 +20,6 @@ public function toOptionArray()
     return $ret;
 }
 
-/*
- * Get options in "key-value" format
- * @return array
- */
 public function toArray()
 {
     $choose = [
