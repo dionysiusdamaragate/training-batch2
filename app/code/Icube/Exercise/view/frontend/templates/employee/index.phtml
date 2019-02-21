@@ -1,0 +1,35 @@
+<style>
+	table, th, td {
+		border: 1px solid #1c1c1c;
+		border-collapse: collapse;
+	}
+	table th {
+		background-color: #333333;
+		color: #fff;
+	}
+</style>
+<table>
+	<thead>
+		<tr>
+			<th width="30"><?php echo __('No'); ?></th>
+			<th><?php echo __('Nama'); ?></th>
+			<th><?php echo __('Email'); ?></th>
+			<th><?php echo __('Divisi'); ?></th>
+			<th><?php echo __('Status'); ?></th>
+			<th><?php echo __('Order counter') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $no = 1; ?>
+		<?php foreach ( $this->getEmployeeCollection() as $employees ) : ?>
+		<tr>
+			<td><?php echo $no++; ?></td> 
+			<td><?php echo $employees->getName() ?></td>
+			<td><?php echo $employees->getEmail() ?></td>
+			<td><?php echo $employees->getDivision() ?></td>
+			<td><p style="color: <?php echo $employee = ($employees->getStatus() == 'employee') ? 'red' : 'green'; ?>"><?php echo $employees->getStatus() ?></p></td>
+			<td><?php echo $employees->getOrder_counter() ?></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>

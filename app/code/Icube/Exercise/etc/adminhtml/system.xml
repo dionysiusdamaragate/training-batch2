@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="training" translate="label" sortOrder="1000">
+			<label>Employee</label>
+		</tab>
+		<section id="training_setting" translate="label" type="text" sortOrder="101" showInDefault="1" showInWebsite="1" showInStore="1">
+			<label>Status Employee</label>
+			<tab>training</tab>
+			<resource>Icube_Magento2Module::config</resource>
+			<group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General</label>
+				<field id="rand_number" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Set Status</label>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
