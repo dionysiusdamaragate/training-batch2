@@ -20,13 +20,13 @@ class CustomerOrder implements ObserverInterface
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-            $event = $observer->getEvent->getOrder();
+            $event = $observer->getEvent()->getOrder();
  	    $customerId = $event->getCustomerId();
  	    $customer = $this->_customerFactory->create()->load($customerId);
 
  	    $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/testing.log');
             $logger = new \Zend\Log\Logger();
             $logger->addWriter($writer);
-            $logger->info('test');
+            $logger->info($customer->getEmail());
     }
 }
