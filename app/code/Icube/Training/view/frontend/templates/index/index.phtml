@@ -1,20 +1,34 @@
-<div >
-   <div class="block-content" aria-labelledby="block-customer-login-heading">
-       <form class="form "
-             action="<?php /* @escapeNotVerified */ $this->getUrl('Training/index/create'); ?>"
-             method="post"
-             id="quiz-form"
-             >
-               <label for="fname">Nama</label>
-               <input type="text" id="fname" name="name" placeholder="Your name..">
-
-               <label for="lname">Email</label>
-               <input type="text" id="lname" name="email" placeholder="Your email..">
-
-               <label for="lname">Divisi</label>
-               <input type="text" id="lname" name="divisi" placeholder="Your division..">
-
-               <input type="submit" value="Submit">
-       </form>
-   </div>
+<div class="block block-customer-login" style="width: 50%;">
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <form class="form form-login"
+              action="<?php /* @escapeNotVerified */ $this->getUrl('input/input/index'); ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+                <div class="field name required">
+                    <label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Nama') ?></span></label>
+                    <div class="control">
+                        <input name="name" autocomplete="off" id="name" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field email required">
+                    <label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
+                    <div class="control">
+                        <input name="email" autocomplete="off" id="email" type="email" class="input-text" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="field division required">
+                    <label class="label" for="division"><span><?php /* @escapeNotVerified */ echo __('Divisi') ?></span></label>
+                    <div class="control">
+                        <input name="division" autocomplete="off" id="division" type="text" class="input-text" title="<?php /* @escapeNotVerified */ echo __('division') ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Submit ') ?></span></button></div>
+                </div>
+            </fieldset>
+            <a href="index">Custom page</a>
+        </form>
+    </div>
 </div>

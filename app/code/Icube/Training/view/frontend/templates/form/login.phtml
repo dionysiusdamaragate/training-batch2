@@ -48,8 +48,9 @@
                 </div>
             </fieldset>
         </form>
-        <form action="<?php echo $this->getUrl('http://local.training.com/input/index/index'); ?>" method="post">
-                    <input type="submit" value="input data">
-                </form>
+        <form class="form form-login"
+            action="<?php /* @escapeNotVerified */ echo $block->getUrl('input/input/index'); ?>">
+              <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Form Input') ?></span></button></div>
+        </form>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="page-heading">
 
 </div>
-            <h1><?php echo 'name '.$this->getTraineeName(1) ?></h1>
+            <h1><?php echo 'Data' ?></h1>
 <table>
     <thead>
         <tr>
@@ -24,3 +24,7 @@
         <?php endforeach; ?>
     </tbody>
 </table>
+<form class="form form-login"
+        action="<?php /* @escapeNotVerified */ echo $block->getUrl('input/input/index'); ?>">
+        <div class="primary"><button type="submit" class="action login primary" name="send" id="send2"><span><?php /* @escapeNotVerified */ echo __('Back') ?></span></button></div>
+</form>
