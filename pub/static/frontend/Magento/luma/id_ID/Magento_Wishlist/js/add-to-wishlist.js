@@ -1,0 +1,1 @@
+/home/cloudpanel/htdocs/freshmage/vendor/magento/module-wishlist/view/frontend/web/js/add-to-wishlist.js

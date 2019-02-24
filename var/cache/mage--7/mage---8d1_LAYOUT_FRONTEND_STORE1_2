@@ -1,6 +1,15 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"tags";s:37:"8d1_LAYOUT_GENERAL_CACHE_TAG,8d1_MAGE";}
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550989798;s:6:"expire";i:9999999999;s:4:"tags";s:37:"8d1_LAYOUT_GENERAL_CACHE_TAG,8d1_MAGE";}
 <?xml version="1.0"?>
-<layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="customer_account_login" layout="1column"><body>
+<layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><handle id="catalog_category_view"><body/>
+</handle><handle id="catalogsearch_advanced_index"><body/>
+</handle><handle id="catalogsearch_advanced_result"><body/>
+</handle><handle id="catalogsearch_result_index"><body/>
+</handle><handle id="default"><body>
+   <referenceContainer name="header.panel">
+      <block class="Magento\Directory\Block\Currency" name="currency" before="store_language" template="currency.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="customer_account_login" layout="1column"><body>
    <referenceBlock name="customer_form_login">
       <action method="setTemplate">
          <argument name="template" xsi:type="string">Icube_Quiz::form/login.phtml</argument>
@@ -20,15 +29,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
 </handle><handle id="quiz_trainee_index" layout="1column"><body>
    <referenceContainer name="content">
       <block class="Icube\Quiz\Block\Trainee" name="trainee.index" template="Icube_Quiz::trainee/index.phtml"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_category_view"><body/>
-</handle><handle id="catalogsearch_advanced_index"><body/>
-</handle><handle id="catalogsearch_advanced_result"><body/>
-</handle><handle id="catalogsearch_result_index"><body/>
-</handle><handle id="default"><body>
-   <referenceContainer name="header.panel">
-      <block class="Magento\Directory\Block\Currency" name="currency" before="store_language" template="currency.phtml"/>
    </referenceContainer>
 </body>
 </handle><handle id="default" layout="3columns"><update handle="default_head_blocks"/>
@@ -1053,6 +1053,55 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
                      <item name="steps" xsi:type="array">
                         <item name="children" xsi:type="array">
                            <item name="billing-step" xsi:type="array">
+                              <item name="component" xsi:type="string">uiComponent</item>
+                              <item name="sortOrder" xsi:type="string">2</item>
+                              <item name="children" xsi:type="array">
+                                 <item name="payment" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                       <item name="renders" xsi:type="array">
+                                          <item name="children" xsi:type="array">
+                                             <item name="free-payments" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Payment/js/view/payment/payments</item>
+                                                <item name="methods" xsi:type="array">
+                                                   <item name="free" xsi:type="array">
+                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                   </item>
+                                                </item>
+                                             </item>
+                                          </item>
+                                       </item>
+                                    </item>
+                                 </item>
+                              </item>
+                           </item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </item>
+         </argument>
+      </arguments>
+   </referenceBlock>
+</body>
+</handle><handle id="checkout_onepage_review"><body>
+   <referenceContainer name="checkout.onepage.review.info.items.after">
+      <block class="Magento\Payment\Block\Transparent\Form" name="payment.form.transparent">
+         <action method="setTemplate">
+            <argument name="template" xsi:type="string">Magento_Payment::transparent/form.phtml</argument>
+         </action>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="checkout_index_index"><body>
+   <referenceBlock name="checkout.root">
+      <arguments>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="checkout" xsi:type="array">
+                  <item name="children" xsi:type="array">
+                     <item name="steps" xsi:type="array">
+                        <item name="children" xsi:type="array">
+                           <item name="billing-step" xsi:type="array">
                               <item name="children" xsi:type="array">
                                  <item name="payment" xsi:type="array">
                                     <item name="children" xsi:type="array">
@@ -1096,53 +1145,19 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       <block class="Magento\CheckoutAgreements\Block\Agreements" name="checkout.multishipping.agreements" as="agreements" template="multishipping_agreements.phtml"/>
    </referenceBlock>
 </body>
-</handle><handle id="checkout_index_index"><body>
-   <referenceBlock name="checkout.root">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="checkout" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="steps" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="billing-step" xsi:type="array">
-                              <item name="component" xsi:type="string">uiComponent</item>
-                              <item name="sortOrder" xsi:type="string">2</item>
-                              <item name="children" xsi:type="array">
-                                 <item name="payment" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="renders" xsi:type="array">
-                                          <item name="children" xsi:type="array">
-                                             <item name="free-payments" xsi:type="array">
-                                                <item name="component" xsi:type="string">Magento_Payment/js/view/payment/payments</item>
-                                                <item name="methods" xsi:type="array">
-                                                   <item name="free" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                </item>
-                                             </item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
+</handle><handle id="catalog_product_view"><body>
+   <referenceContainer name="product.info.extrahint">
+      <block class="Magento\CatalogInventory\Block\Qtyincrements" name="product.info.extrahint.qtyincrements" template="qtyincrements.phtml"/>
+   </referenceContainer>
 </body>
-</handle><handle id="checkout_onepage_review"><body>
-   <referenceContainer name="checkout.onepage.review.info.items.after">
-      <block class="Magento\Payment\Block\Transparent\Form" name="payment.form.transparent">
-         <action method="setTemplate">
-            <argument name="template" xsi:type="string">Magento_Payment::transparent/form.phtml</argument>
-         </action>
-      </block>
+</handle><handle id="catalog_product_view_type_simple"><body>
+   <referenceContainer name="product.info.simple.extra">
+      <block class="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty" template="stockqty/default.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="catalog_product_view_type_virtual"><body>
+   <referenceContainer name="product.info.virtual.extra">
+      <block class="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty" template="stockqty/default.phtml"/>
    </referenceContainer>
 </body>
 </handle><handle id="catalog_product_view_type_downloadable"><body>
@@ -1382,6 +1397,11 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       <block class="Magento\Cookie\Block\Html\Notices" name="cookie_notices" template="html/notices.phtml" after="global_notices"/>
    </referenceContainer>
 </body>
+</handle><handle id="default" layout="admin-1column"><body>
+   <referenceContainer name="after.body.start">
+      <block class="Magento\Ui\Block\Logger" name="logger" template="Magento_Ui::logger.phtml"/>
+   </referenceContainer>
+</body>
 </handle><handle id="checkout_cart_index"><body>
    <referenceBlock name="checkout.cart.shipping">
       <arguments>
@@ -1435,21 +1455,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
          </argument>
       </arguments>
    </referenceBlock>
-</body>
-</handle><handle id="catalog_product_view"><body>
-   <referenceContainer name="product.info.extrahint">
-      <block class="Magento\CatalogInventory\Block\Qtyincrements" name="product.info.extrahint.qtyincrements" template="qtyincrements.phtml"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_product_view_type_simple"><body>
-   <referenceContainer name="product.info.simple.extra">
-      <block class="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty" template="stockqty/default.phtml"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_product_view_type_virtual"><body>
-   <referenceContainer name="product.info.virtual.extra">
-      <block class="Magento\CatalogInventory\Block\Stockqty\DefaultStockqty" template="stockqty/default.phtml"/>
-   </referenceContainer>
 </body>
 </handle><handle id="checkout_index_index"><body>
    <referenceBlock name="sale.reorder.sidebar" remove="true"/>
@@ -2106,190 +2111,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       <block class="Magento\Sales\Block\Order\Info" as="info" name="sales.order.info" after="sales.order.view"/>
    </referenceContainer>
    <block class="Magento\Framework\View\Element\Template" name="additional.product.info" template="Magento_Theme::template.phtml"/>
-</body>
-</handle><handle id="checkout_cart_index"><body>
-   <referenceBlock name="checkout.cart.shipping">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="summary-block-config" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="shipping-rates-validation" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="fedex-rates-validation" xsi:type="array">
-                              <item name="component" xsi:type="string">Magento_Fedex/js/view/shipping-rates-validation</item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_index_index"><body>
-   <referenceBlock name="checkout.root">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="checkout" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="steps" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="shipping-step" xsi:type="array">
-                              <item name="children" xsi:type="array">
-                                 <item name="step-config" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="shipping-rates-validation" xsi:type="array">
-                                          <item name="children" xsi:type="array">
-                                             <item name="fedex-rates-validation" xsi:type="array">
-                                                <item name="component" xsi:type="string">Magento_Fedex/js/view/shipping-rates-validation</item>
-                                             </item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_cart_index"><body>
-   <referenceBlock name="checkout.cart.order.actions">
-      <block class="Magento\GiftMessage\Block\Cart\GiftOptions" name="checkout.cart.order.actions.gift_options" template="cart/gift_options.phtml" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCart" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_cart_item_renderers"><body>
-   <referenceBlock name="checkout.cart.item.renderers.default.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.default.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <referenceBlock name="checkout.cart.item.renderers.simple.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.simple.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <referenceBlock name="checkout.cart.item.renderers.bundle.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.bundle.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <referenceBlock name="checkout.cart.item.renderers.grouped.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.grouped.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <referenceBlock name="checkout.cart.item.renderers.configurable.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.configurable.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <referenceBlock name="checkout.cart.item.renderers.gift-card.actions">
-      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.gift-card.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="types" xsi:type="array"/>
-               <item name="components" xsi:type="array">
-                  <item name="giftOptionsCartItem" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
-                     <item name="config" xsi:type="array">
-                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
-                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
-                     </item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceBlock>
 </body>
 </handle><handle id="catalog_category_view"><body>
    <referenceContainer name="content">
@@ -3156,14 +2977,213 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       </block>
    </referenceContainer>
 </body>
+</handle><handle id="checkout_cart_index"><body>
+   <referenceBlock name="checkout.cart.shipping">
+      <arguments>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="summary-block-config" xsi:type="array">
+                  <item name="children" xsi:type="array">
+                     <item name="shipping-rates-validation" xsi:type="array">
+                        <item name="children" xsi:type="array">
+                           <item name="fedex-rates-validation" xsi:type="array">
+                              <item name="component" xsi:type="string">Magento_Fedex/js/view/shipping-rates-validation</item>
+                           </item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </item>
+         </argument>
+      </arguments>
+   </referenceBlock>
+</body>
+</handle><handle id="checkout_index_index"><body>
+   <referenceBlock name="checkout.root">
+      <arguments>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="checkout" xsi:type="array">
+                  <item name="children" xsi:type="array">
+                     <item name="steps" xsi:type="array">
+                        <item name="children" xsi:type="array">
+                           <item name="shipping-step" xsi:type="array">
+                              <item name="children" xsi:type="array">
+                                 <item name="step-config" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                       <item name="shipping-rates-validation" xsi:type="array">
+                                          <item name="children" xsi:type="array">
+                                             <item name="fedex-rates-validation" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Fedex/js/view/shipping-rates-validation</item>
+                                             </item>
+                                          </item>
+                                       </item>
+                                    </item>
+                                 </item>
+                              </item>
+                           </item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </item>
+         </argument>
+      </arguments>
+   </referenceBlock>
+</body>
+</handle><handle id="checkout_cart_index"><body>
+   <referenceBlock name="checkout.cart.order.actions">
+      <block class="Magento\GiftMessage\Block\Cart\GiftOptions" name="checkout.cart.order.actions.gift_options" template="cart/gift_options.phtml" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCart" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="checkout_cart_item_renderers"><body>
+   <referenceBlock name="checkout.cart.item.renderers.default.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.default.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+   <referenceBlock name="checkout.cart.item.renderers.simple.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.simple.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+   <referenceBlock name="checkout.cart.item.renderers.bundle.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.bundle.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+   <referenceBlock name="checkout.cart.item.renderers.grouped.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.grouped.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+   <referenceBlock name="checkout.cart.item.renderers.configurable.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.configurable.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+   <referenceBlock name="checkout.cart.item.renderers.gift-card.actions">
+      <block class="Magento\GiftMessage\Block\Cart\Item\Renderer\Actions\GiftOptions" name="checkout.cart.item.renderers.gift-card.actions.gift_options" template="cart/item/renderer/actions/gift_options.phtml" before="-" cacheable="false">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="types" xsi:type="array"/>
+               <item name="components" xsi:type="array">
+                  <item name="giftOptionsCartItem" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_GiftMessage/js/view/gift-message</item>
+                     <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_GiftMessage/gift-message-item-level</item>
+                        <item name="formTemplate" xsi:type="string">Magento_GiftMessage/gift-message-form</item>
+                     </item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="checkout_onepage_success"><body>
+   <referenceContainer name="content">
+      <block class="Magento\GoogleAdwords\Block\Code" name="google.adwords.code" template="code.phtml"/>
+   </referenceContainer>
+</body>
 </handle><handle id="default"><body>
    <referenceContainer name="after.body.start">
       <block class="Magento\GoogleAnalytics\Block\Ga" name="google_analytics" as="google_analytics" template="ga.phtml"/>
    </referenceContainer>
 </body>
-</handle><handle id="default" layout="admin-1column"><body>
+</handle><handle id="catalog_category_view"><body>
    <referenceContainer name="after.body.start">
-      <block class="Magento\Ui\Block\Logger" name="logger" template="Magento_Ui::logger.phtml"/>
+      <block class="Magento\GoogleOptimizer\Block\Code\Category" before="-" name="googleoptimizer.experiment.script"/>
+   </referenceContainer>
+</body>
+</handle><handle id="catalog_product_view"><body>
+   <referenceContainer name="after.body.start">
+      <block class="Magento\GoogleOptimizer\Block\Code\Product" before="-" name="googleoptimizer.experiment.script"/>
+   </referenceContainer>
+</body>
+</handle><handle id="cms_page_view"><body>
+   <referenceContainer name="after.body.start">
+      <block class="Magento\GoogleOptimizer\Block\Code\Page" before="-" name="googleoptimizer.experiment.script"/>
    </referenceContainer>
 </body>
 </handle><layout id="catalog_product_prices"><referenceBlock name="render.product.prices">
@@ -3485,6 +3505,44 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
    </block>
    <block class="Magento\Tax\Block\Item\Price\Renderer" name="item_row_total_after_discount" template="item/price/total_after_discount.phtml"/>
 </body>
+</handle><layout id="catalog_product_prices"><referenceBlock name="render.product.prices">
+   <arguments>
+      <argument name="default" xsi:type="array">
+         <item name="adjustments" xsi:type="array">
+            <item name="default" xsi:type="array">
+               <item name="tax" xsi:type="array">
+                  <item name="adjustment_render_class" xsi:type="string">Magento\Weee\Pricing\Render\TaxAdjustment</item>
+                  <item name="adjustment_render_template" xsi:type="string">Magento_Tax::pricing/adjustment.phtml</item>
+               </item>
+               <item name="weee" xsi:type="array">
+                  <item name="adjustment_render_class" xsi:type="string">Magento\Weee\Pricing\Render\Adjustment</item>
+                  <item name="adjustment_render_template" xsi:type="string">Magento_Weee::pricing/adjustment.phtml</item>
+               </item>
+            </item>
+         </item>
+      </argument>
+   </arguments>
+</referenceBlock>
+</layout><handle id="checkout_cart_index"><body>
+   <referenceBlock name="checkout.cart.totals">
+      <arguments>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="block-totals" xsi:type="array">
+                  <item name="children" xsi:type="array">
+                     <item name="weee" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_Weee/js/view/cart/totals/weee</item>
+                        <item name="config" xsi:type="array">
+                           <item name="title" xsi:type="string">FPT</item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </item>
+         </argument>
+      </arguments>
+   </referenceBlock>
+</body>
 </handle><handle id="checkout_index_index"><body>
    <referenceBlock name="checkout.root">
       <arguments>
@@ -3492,18 +3550,35 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
             <item name="components" xsi:type="array">
                <item name="checkout" xsi:type="array">
                   <item name="children" xsi:type="array">
-                     <item name="steps" xsi:type="array">
+                     <item name="sidebar" xsi:type="array">
                         <item name="children" xsi:type="array">
-                           <item name="billing-step" xsi:type="array">
-                              <item name="component" xsi:type="string">uiComponent</item>
+                           <item name="summary" xsi:type="array">
                               <item name="children" xsi:type="array">
-                                 <item name="payment" xsi:type="array">
+                                 <item name="totals" xsi:type="array">
                                     <item name="children" xsi:type="array">
-                                       <item name="renders" xsi:type="array">
+                                       <item name="weee" xsi:type="array">
+                                          <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/weee</item>
+                                          <item name="config" xsi:type="array">
+                                             <item name="title" xsi:type="string">FPT</item>
+                                          </item>
+                                       </item>
+                                    </item>
+                                 </item>
+                                 <item name="cart_items" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                       <item name="details" xsi:type="array">
                                           <item name="children" xsi:type="array">
-                                             <item name="vault" xsi:type="array">
-                                                <item name="component" xsi:type="string">Magento_Vault/js/view/payment/vault</item>
-                                                <item name="methods" xsi:type="array"/>
+                                             <item name="subtotal" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                   <item name="weee_row_incl_tax" xsi:type="array">
+                                                      <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/item/price/row_incl_tax</item>
+                                                      <item name="displayArea" xsi:type="string">row_incl_tax</item>
+                                                   </item>
+                                                   <item name="weee_row_excl_tax" xsi:type="array">
+                                                      <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/item/price/row_excl_tax</item>
+                                                      <item name="displayArea" xsi:type="string">row_excl_tax</item>
+                                                   </item>
+                                                </item>
                                              </item>
                                           </item>
                                        </item>
@@ -3520,22 +3595,195 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       </arguments>
    </referenceBlock>
 </body>
-</handle><handle id="customer_account"><body>
-   <referenceBlock name="customer_account_navigation">
-      <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-my-credit-cards-link">
+</handle><handle id="checkout_item_price_renderers"><body>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.unit.excl" template="checkout/onepage/review/item/price/unit_excl_tax.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.unit.incl" template="checkout/onepage/review/item/price/unit_incl_tax.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.rowtotal.excl" template="checkout/onepage/review/item/price/row_excl_tax.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.rowtotal.incl" template="checkout/onepage/review/item/price/row_incl_tax.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.item.price.unit" template="item/price/unit.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.item.price.row" template="item/price/row.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">cart</argument>
+      </arguments>
+   </block>
+</body>
+</handle><handle id="default"><body/>
+</handle><handle id="sales_email_item_price"><body>
+   <referenceBlock name="items">
+      <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_price" template="email/items/price/row.phtml">
          <arguments>
-            <argument name="path" xsi:type="string">vault/cards/listaction</argument>
-            <argument name="label" translate="true" xsi:type="string">Stored Payment Methods</argument>
+            <argument name="zone" xsi:type="string">email</argument>
          </arguments>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="vault_cards_listaction"><update handle="customer_account"/>
-<body>
-   <referenceContainer name="content">
-      <block class="Magento\Vault\Block\Customer\CreditCards" name="vault.cards.list" cacheable="false" template="cards_list.phtml"/>
-      <block class="Magento\Vault\Block\Customer\AccountTokens" name="vault.token.list" cacheable="false" template="token_list.phtml"/>
-   </referenceContainer>
+</handle><handle id="sales_email_order_creditmemo_items"><body>
+   <referenceBlock name="creditmemo_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_email_order_invoice_items"><body>
+   <referenceBlock name="invoice_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_email_order_items"><body>
+   <referenceBlock name="order_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_creditmemo"><body>
+   <referenceBlock name="creditmemo_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_invoice"><body>
+   <referenceBlock name="invoice_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_print"><body>
+   <referenceBlock name="order_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_printcreditmemo"><body>
+   <referenceBlock name="creditmemo_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_printinvoice"><body>
+   <referenceBlock name="invoice_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_guest_view"><body>
+   <referenceBlock name="order_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_creditmemo"><body>
+   <referenceBlock name="creditmemo_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_invoice"><body>
+   <referenceBlock name="invoice_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_item_price"><body>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_unit_price" template="item/price/unit.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">sales</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_row_total" template="item/price/row.phtml">
+      <arguments>
+         <argument name="zone" xsi:type="string">sales</argument>
+      </arguments>
+   </block>
+   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_row_total_after_discount" template="item/price/total_after_discount.phtml"/>
+</body>
+</handle><handle id="sales_order_print"><body>
+   <referenceBlock name="order_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_printcreditmemo"><body>
+   <referenceBlock name="creditmemo_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_printinvoice"><body>
+   <referenceBlock name="invoice_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
+</body>
+</handle><handle id="sales_order_view"><body>
+   <referenceBlock name="order_totals">
+      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
+         <action method="setBeforeCondition">
+            <argument name="condition" xsi:type="string">tax</argument>
+         </action>
+      </block>
+   </referenceBlock>
 </body>
 </handle><handle id="catalog_category_view_type_layered"><body>
    <attribute name="class" value="page-with-filter"/>
@@ -4031,78 +4279,36 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       <block class="Magento\PageCache\Block\Javascript" template="Magento_PageCache::javascript.phtml" name="pageCache" as="pageCache"/>
    </referenceContainer>
 </body>
-</handle><layout id="catalog_product_prices"><referenceBlock name="render.product.prices">
-   <arguments>
-      <argument name="default" xsi:type="array">
-         <item name="adjustments" xsi:type="array">
-            <item name="default" xsi:type="array">
-               <item name="tax" xsi:type="array">
-                  <item name="adjustment_render_class" xsi:type="string">Magento\Weee\Pricing\Render\TaxAdjustment</item>
-                  <item name="adjustment_render_template" xsi:type="string">Magento_Tax::pricing/adjustment.phtml</item>
-               </item>
-               <item name="weee" xsi:type="array">
-                  <item name="adjustment_render_class" xsi:type="string">Magento\Weee\Pricing\Render\Adjustment</item>
-                  <item name="adjustment_render_template" xsi:type="string">Magento_Weee::pricing/adjustment.phtml</item>
-               </item>
-            </item>
-         </item>
-      </argument>
-   </arguments>
-</referenceBlock>
-</layout><handle id="checkout_cart_index"><body>
-   <referenceBlock name="checkout.cart.totals">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="block-totals" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="weee" xsi:type="array">
-                        <item name="component" xsi:type="string">Magento_Weee/js/view/cart/totals/weee</item>
-                        <item name="config" xsi:type="array">
-                           <item name="title" xsi:type="string">FPT</item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_index_index"><body>
+</handle><layout id="authorizenet_directpost_payment_backendresponse"><container name="root">
+   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
+</container>
+</layout><layout id="authorizenet_directpost_payment_redirect"><container name="root">
+   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
+</container>
+</layout><layout id="authorizenet_directpost_payment_response"><container name="root">
+   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
+</container>
+</layout><handle id="checkout_index_index"><body>
    <referenceBlock name="checkout.root">
       <arguments>
          <argument name="jsLayout" xsi:type="array">
             <item name="components" xsi:type="array">
                <item name="checkout" xsi:type="array">
                   <item name="children" xsi:type="array">
-                     <item name="sidebar" xsi:type="array">
+                     <item name="steps" xsi:type="array">
                         <item name="children" xsi:type="array">
-                           <item name="summary" xsi:type="array">
+                           <item name="billing-step" xsi:type="array">
+                              <item name="component" xsi:type="string">uiComponent</item>
                               <item name="children" xsi:type="array">
-                                 <item name="totals" xsi:type="array">
+                                 <item name="payment" xsi:type="array">
                                     <item name="children" xsi:type="array">
-                                       <item name="weee" xsi:type="array">
-                                          <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/weee</item>
-                                          <item name="config" xsi:type="array">
-                                             <item name="title" xsi:type="string">FPT</item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                                 <item name="cart_items" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="details" xsi:type="array">
+                                       <item name="renders" xsi:type="array">
                                           <item name="children" xsi:type="array">
-                                             <item name="subtotal" xsi:type="array">
-                                                <item name="children" xsi:type="array">
-                                                   <item name="weee_row_incl_tax" xsi:type="array">
-                                                      <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/item/price/row_incl_tax</item>
-                                                      <item name="displayArea" xsi:type="string">row_incl_tax</item>
-                                                   </item>
-                                                   <item name="weee_row_excl_tax" xsi:type="array">
-                                                      <item name="component" xsi:type="string">Magento_Weee/js/view/checkout/summary/item/price/row_excl_tax</item>
-                                                      <item name="displayArea" xsi:type="string">row_excl_tax</item>
+                                             <item name="authorizenet" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Authorizenet/js/view/payment/authorizenet</item>
+                                                <item name="methods" xsi:type="array">
+                                                   <item name="authorizenet_directpost" xsi:type="array">
+                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                    </item>
                                                 </item>
                                              </item>
@@ -4121,195 +4327,241 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       </arguments>
    </referenceBlock>
 </body>
-</handle><handle id="checkout_item_price_renderers"><body>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.unit.excl" template="checkout/onepage/review/item/price/unit_excl_tax.phtml">
+</handle><handle id="checkout_index_index"><body>
+   <referenceBlock name="checkout.root">
       <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="checkout" xsi:type="array">
+                  <item name="children" xsi:type="array">
+                     <item name="steps" xsi:type="array">
+                        <item name="children" xsi:type="array">
+                           <item name="billing-step" xsi:type="array">
+                              <item name="component" xsi:type="string">uiComponent</item>
+                              <item name="children" xsi:type="array">
+                                 <item name="payment" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                       <item name="renders" xsi:type="array">
+                                          <item name="children" xsi:type="array">
+                                             <item name="vault" xsi:type="array">
+                                                <item name="component" xsi:type="string">Magento_Vault/js/view/payment/vault</item>
+                                                <item name="methods" xsi:type="array"/>
+                                             </item>
+                                          </item>
+                                       </item>
+                                    </item>
+                                 </item>
+                              </item>
+                           </item>
+                        </item>
+                     </item>
+                  </item>
+               </item>
+            </item>
+         </argument>
       </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.unit.incl" template="checkout/onepage/review/item/price/unit_incl_tax.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
-      </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.rowtotal.excl" template="checkout/onepage/review/item/price/row_excl_tax.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
-      </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.onepage.review.item.price.rowtotal.incl" template="checkout/onepage/review/item/price/row_incl_tax.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
-      </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.item.price.unit" template="item/price/unit.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
-      </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="checkout.item.price.row" template="item/price/row.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">cart</argument>
-      </arguments>
-   </block>
+   </referenceBlock>
 </body>
-</handle><handle id="default"><body/>
-</handle><handle id="sales_email_item_price"><body>
-   <referenceBlock name="items">
-      <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_price" template="email/items/price/row.phtml">
+</handle><handle id="customer_account"><body>
+   <referenceBlock name="customer_account_navigation">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-my-credit-cards-link">
          <arguments>
-            <argument name="zone" xsi:type="string">email</argument>
+            <argument name="path" xsi:type="string">vault/cards/listaction</argument>
+            <argument name="label" translate="true" xsi:type="string">Stored Payment Methods</argument>
          </arguments>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="sales_email_order_creditmemo_items"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
+</handle><handle id="vault_cards_listaction"><update handle="customer_account"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Vault\Block\Customer\CreditCards" name="vault.cards.list" cacheable="false" template="cards_list.phtml"/>
+      <block class="Magento\Vault\Block\Customer\AccountTokens" name="vault.token.list" cacheable="false" template="token_list.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="customer_account_create"><body>
+   <referenceContainer name="form.additional.info">
+      <block class="Magento\Persistent\Block\Form\Remember" name="persistent.remember.me" template="remember_me.phtml" before="-"/>
+   </referenceContainer>
+</body>
+</handle><handle id="customer_account_login"><body>
+   <referenceContainer name="form.additional.info">
+      <block class="Magento\Persistent\Block\Form\Remember" name="persistent.remember.me" template="remember_me.phtml" before="-"/>
+   </referenceContainer>
+</body>
+</handle><handle id="catalog_product_view"><body>
+   <referenceContainer name="alert.urls">
+      <block class="Magento\ProductAlert\Block\Product\View\Price" name="productalert.price" as="productalert_price" template="product/view.phtml">
+         <action method="setHtmlClass">
+            <argument name="value" xsi:type="string">price</argument>
          </action>
+         <action method="setSignupLabel">
+            <argument translate="true" name="value" xsi:type="string">Notify me when the price drops</argument>
+         </action>
+      </block>
+      <block class="Magento\ProductAlert\Block\Product\View\Stock" name="productalert.stock" as="productalert_stock" template="product/view.phtml">
+         <action method="setHtmlClass">
+            <argument name="value" xsi:type="string">stock</argument>
+         </action>
+         <action method="setSignupLabel">
+            <argument translate="true" name="value" xsi:type="string">Notify me when this product is in stock</argument>
+         </action>
+      </block>
+   </referenceContainer>
+</body>
+</handle><handle id="catalog_product_view" layout="1column"><body>
+   <referenceContainer name="product.info.media">
+      <block class="Magento\ProductVideo\Block\Product\View\Gallery" name="product.info.media.video" after="product.info.media.image" template="product/view/gallery.phtml"/>
+   </referenceContainer>
+</body>
+</handle><handle id="default"><body>
+   <referenceBlock name="head.components">
+      <block class="Magento\Framework\View\Element\Js\Components" name="reports_page_head_components" template="Magento_Reports::js/components.phtml"/>
+   </referenceBlock>
+</body>
+</handle><handle id="print"><body/>
+</handle><handle id="catalog_product_view"><update handle="review_product_form_component"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+         <arguments>
+            <argument name="triggers" xsi:type="array">
+               <item name="submitReviewButton" xsi:type="string">.review .action.submit</item>
+            </argument>
+         </arguments>
+      </block>
+   </referenceContainer>
+   <referenceBlock name="product.info.details">
+      <block class="Magento\Review\Block\Product\Review" name="reviews.tab" as="reviews" template="Magento_Review::review.phtml" group="detailed_info">
+         <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
+            <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+         </block>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="sales_email_order_invoice_items"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
+</handle><handle id="checkout_cart_configure"><update handle="catalog_product_view"/>
+<body>
+   <referenceBlock name="reviews.tab">
+      <block class="Magento\Review\Block\Form\Configure" name="product.review.form" as="review_form">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="review-form" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="sales_email_order_items"><body>
-   <referenceBlock name="order_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
+</handle><handle id="customer_account"><body>
+   <referenceBlock name="customer_account_navigation">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-product-reviews-link">
+         <arguments>
+            <argument name="path" xsi:type="string">review/customer</argument>
+            <argument name="label" xsi:type="string">My Product Reviews</argument>
+         </arguments>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="sales_guest_creditmemo"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
+</handle><handle id="customer_account_index"><body>
+   <referenceContainer name="content">
+      <block class="Magento\Review\Block\Customer\Recent" name="customer_account_dashboard_info1" template="customer/recent.phtml" after="customer_account_dashboard_address" cacheable="false"/>
+   </referenceContainer>
 </body>
-</handle><handle id="sales_guest_invoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
+</handle><handle id="review_customer_index"><update handle="customer_account"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Review\Block\Customer\ListCustomer" name="review_customer_list" template="customer/list.phtml" cacheable="false"/>
+   </referenceContainer>
 </body>
-</handle><handle id="sales_guest_print"><body>
-   <referenceBlock name="order_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
+</handle><handle id="review_customer_view"><update handle="customer_account"/>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Review\Block\Customer\View" name="customers_review" cacheable="false"/>
+   </referenceContainer>
 </body>
-</handle><handle id="sales_guest_printcreditmemo"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_printinvoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_guest_view"><body>
-   <referenceBlock name="order_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_creditmemo"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_invoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="sales_order_item_price"><body>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_unit_price" template="item/price/unit.phtml">
+</handle><handle id="review_product_form_component"><body>
+   <referenceBlock name="product.review.form">
       <arguments>
-         <argument name="zone" xsi:type="string">sales</argument>
+         <argument name="jsLayout" xsi:type="array">
+            <item name="components" xsi:type="array">
+               <item name="review-form" xsi:type="array">
+                  <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
+               </item>
+            </item>
+         </argument>
+      </arguments>
+   </referenceBlock>
+</body>
+</handle><handle id="review_product_list" layout="1column"><update handle="catalog_product_view"/>
+<body>
+   <referenceContainer name="product.info.main">
+      <block class="Magento\Review\Block\Product\View\Other" name="product.info.other" as="other" template="Magento_Review::product/view/other.phtml" before="product.info.addto"/>
+   </referenceContainer>
+   <referenceContainer name="content">
+      <container name="product.info.details" htmlTag="div" htmlClass="product info detailed" after="product.info.media">
+         <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
+            <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before" htmlTag="div" htmlClass="rewards"/>
+         </block>
+         <block class="Magento\Review\Block\Product\View\ListView" name="product.info.product_additional_data" as="product_additional_data" template="product/view/list.phtml"/>
+         <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar"/>
+      </container>
+   </referenceContainer>
+</body>
+</handle><layout id="review_product_listajax"><container name="root">
+   <block class="Magento\Review\Block\Product\View\ListView" name="product.info.product_additional_data" as="product_additional_data" template="product/view/list.phtml"/>
+   <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar">
+      <arguments>
+         <argument name="show_per_page" xsi:type="boolean">false</argument>
+         <argument name="show_amounts" xsi:type="boolean">false</argument>
       </arguments>
    </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_row_total" template="item/price/row.phtml">
-      <arguments>
-         <argument name="zone" xsi:type="string">sales</argument>
-      </arguments>
-   </block>
-   <block class="Magento\Weee\Block\Item\Price\Renderer" name="item_row_total_after_discount" template="item/price/total_after_discount.phtml"/>
+</container>
+</layout><handle id="review_product_view" layout="1column"><body>
+   <referenceContainer name="content">
+      <block class="Magento\Review\Block\View" name="review_view"/>
+   </referenceContainer>
 </body>
-</handle><handle id="sales_order_print"><body>
-   <referenceBlock name="order_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
+</handle><handle id="wishlist_index_configure"><update handle="catalog_product_view"/>
+<body>
+   <referenceBlock name="reviews.tab">
+      <block class="Magento\Review\Block\Form\Configure" name="product.review.form" as="review_form">
+         <arguments>
+            <argument name="jsLayout" xsi:type="array">
+               <item name="components" xsi:type="array">
+                  <item name="review-form" xsi:type="array">
+                     <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
+                  </item>
+               </item>
+            </argument>
+         </arguments>
+         <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
       </block>
    </referenceBlock>
 </body>
-</handle><handle id="sales_order_printcreditmemo"><body>
-   <referenceBlock name="creditmemo_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_cm_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
+</handle><handle id="default"><body>
+   <referenceBlock name="footer_links">
+      <block class="Magento\Framework\View\Element\Html\Link\Current" name="rss-link" ifconfig="rss/config/active">
+         <arguments>
+            <argument name="label" xsi:type="string">RSS</argument>
+            <argument name="path" xsi:type="string">rss</argument>
+         </arguments>
       </block>
    </referenceBlock>
+   <block class="Magento\Rss\Block\Feeds" name="head_rss" ifconfig="rss/config/active"/>
 </body>
-</handle><handle id="sales_order_printinvoice"><body>
-   <referenceBlock name="invoice_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_inv_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
+</handle><handle id="rss_index_index" layout="2columns-right"><body>
+   <referenceBlock name="page.main.title">
+      <action method="setPageTitle">
+         <argument name="title" translate="true" xsi:type="string">RSS Feeds</argument>
+      </action>
    </referenceBlock>
-</body>
-</handle><handle id="sales_order_view"><body>
-   <referenceBlock name="order_totals">
-      <block class="Magento\Weee\Block\Sales\Order\Totals" name="weee_ord_totals">
-         <action method="setBeforeCondition">
-            <argument name="condition" xsi:type="string">tax</argument>
-         </action>
-      </block>
-   </referenceBlock>
+   <referenceContainer name="content">
+      <block class="Magento\Rss\Block\Feeds" name="rss.feeds"/>
+   </referenceContainer>
 </body>
 </handle><handle id="catalog_category_view"><body>
    <referenceContainer name="sidebar.additional">
@@ -4582,41 +4834,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       </referenceBlock>
    </referenceContainer>
 </body>
-</handle><handle id="customer_account_create"><body>
-   <referenceContainer name="form.additional.info">
-      <block class="Magento\Persistent\Block\Form\Remember" name="persistent.remember.me" template="remember_me.phtml" before="-"/>
-   </referenceContainer>
-</body>
-</handle><handle id="customer_account_login"><body>
-   <referenceContainer name="form.additional.info">
-      <block class="Magento\Persistent\Block\Form\Remember" name="persistent.remember.me" template="remember_me.phtml" before="-"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_product_view"><body>
-   <referenceContainer name="alert.urls">
-      <block class="Magento\ProductAlert\Block\Product\View\Price" name="productalert.price" as="productalert_price" template="product/view.phtml">
-         <action method="setHtmlClass">
-            <argument name="value" xsi:type="string">price</argument>
-         </action>
-         <action method="setSignupLabel">
-            <argument translate="true" name="value" xsi:type="string">Notify me when the price drops</argument>
-         </action>
-      </block>
-      <block class="Magento\ProductAlert\Block\Product\View\Stock" name="productalert.stock" as="productalert_stock" template="product/view.phtml">
-         <action method="setHtmlClass">
-            <argument name="value" xsi:type="string">stock</argument>
-         </action>
-         <action method="setSignupLabel">
-            <argument translate="true" name="value" xsi:type="string">Notify me when this product is in stock</argument>
-         </action>
-      </block>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_product_view" layout="1column"><body>
-   <referenceContainer name="product.info.media">
-      <block class="Magento\ProductVideo\Block\Product\View\Gallery" name="product.info.media.video" after="product.info.media.image" template="product/view/gallery.phtml"/>
-   </referenceContainer>
-</body>
 </handle><handle id="checkout_index_index"><body>
    <referenceBlock name="checkout.root">
       <arguments>
@@ -4799,203 +5016,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       </arguments>
    </referenceBlock>
 </body>
-</handle><handle id="default"><body>
-   <referenceBlock name="head.components">
-      <block class="Magento\Framework\View\Element\Js\Components" name="reports_page_head_components" template="Magento_Reports::js/components.phtml"/>
-   </referenceBlock>
-</body>
-</handle><handle id="print"><body/>
-</handle><handle id="catalog_product_view"><update handle="review_product_form_component"/>
-<body>
-   <referenceContainer name="content">
-      <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
-         <arguments>
-            <argument name="triggers" xsi:type="array">
-               <item name="submitReviewButton" xsi:type="string">.review .action.submit</item>
-            </argument>
-         </arguments>
-      </block>
-   </referenceContainer>
-   <referenceBlock name="product.info.details">
-      <block class="Magento\Review\Block\Product\Review" name="reviews.tab" as="reviews" template="Magento_Review::review.phtml" group="detailed_info">
-         <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
-            <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
-         </block>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="checkout_cart_configure"><update handle="catalog_product_view"/>
-<body>
-   <referenceBlock name="reviews.tab">
-      <block class="Magento\Review\Block\Form\Configure" name="product.review.form" as="review_form">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="components" xsi:type="array">
-                  <item name="review-form" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-         <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="customer_account"><body>
-   <referenceBlock name="customer_account_navigation">
-      <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-product-reviews-link">
-         <arguments>
-            <argument name="path" xsi:type="string">review/customer</argument>
-            <argument name="label" xsi:type="string">My Product Reviews</argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="customer_account_index"><body>
-   <referenceContainer name="content">
-      <block class="Magento\Review\Block\Customer\Recent" name="customer_account_dashboard_info1" template="customer/recent.phtml" after="customer_account_dashboard_address" cacheable="false"/>
-   </referenceContainer>
-</body>
-</handle><handle id="review_customer_index"><update handle="customer_account"/>
-<body>
-   <referenceContainer name="content">
-      <block class="Magento\Review\Block\Customer\ListCustomer" name="review_customer_list" template="customer/list.phtml" cacheable="false"/>
-   </referenceContainer>
-</body>
-</handle><handle id="review_customer_view"><update handle="customer_account"/>
-<body>
-   <referenceContainer name="content">
-      <block class="Magento\Review\Block\Customer\View" name="customers_review" cacheable="false"/>
-   </referenceContainer>
-</body>
-</handle><handle id="review_product_form_component"><body>
-   <referenceBlock name="product.review.form">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="review-form" xsi:type="array">
-                  <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
-</handle><handle id="review_product_list" layout="1column"><update handle="catalog_product_view"/>
-<body>
-   <referenceContainer name="product.info.main">
-      <block class="Magento\Review\Block\Product\View\Other" name="product.info.other" as="other" template="Magento_Review::product/view/other.phtml" before="product.info.addto"/>
-   </referenceContainer>
-   <referenceContainer name="content">
-      <container name="product.info.details" htmlTag="div" htmlClass="product info detailed" after="product.info.media">
-         <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form">
-            <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before" htmlTag="div" htmlClass="rewards"/>
-         </block>
-         <block class="Magento\Review\Block\Product\View\ListView" name="product.info.product_additional_data" as="product_additional_data" template="product/view/list.phtml"/>
-         <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar"/>
-      </container>
-   </referenceContainer>
-</body>
-</handle><layout id="review_product_listajax"><container name="root">
-   <block class="Magento\Review\Block\Product\View\ListView" name="product.info.product_additional_data" as="product_additional_data" template="product/view/list.phtml"/>
-   <block class="Magento\Theme\Block\Html\Pager" name="product_review_list.toolbar">
-      <arguments>
-         <argument name="show_per_page" xsi:type="boolean">false</argument>
-         <argument name="show_amounts" xsi:type="boolean">false</argument>
-      </arguments>
-   </block>
-</container>
-</layout><handle id="review_product_view" layout="1column"><body>
-   <referenceContainer name="content">
-      <block class="Magento\Review\Block\View" name="review_view"/>
-   </referenceContainer>
-</body>
-</handle><handle id="wishlist_index_configure"><update handle="catalog_product_view"/>
-<body>
-   <referenceBlock name="reviews.tab">
-      <block class="Magento\Review\Block\Form\Configure" name="product.review.form" as="review_form">
-         <arguments>
-            <argument name="jsLayout" xsi:type="array">
-               <item name="components" xsi:type="array">
-                  <item name="review-form" xsi:type="array">
-                     <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
-                  </item>
-               </item>
-            </argument>
-         </arguments>
-         <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
-      </block>
-   </referenceBlock>
-</body>
-</handle><handle id="default"><body>
-   <referenceBlock name="footer_links">
-      <block class="Magento\Framework\View\Element\Html\Link\Current" name="rss-link" ifconfig="rss/config/active">
-         <arguments>
-            <argument name="label" xsi:type="string">RSS</argument>
-            <argument name="path" xsi:type="string">rss</argument>
-         </arguments>
-      </block>
-   </referenceBlock>
-   <block class="Magento\Rss\Block\Feeds" name="head_rss" ifconfig="rss/config/active"/>
-</body>
-</handle><handle id="rss_index_index" layout="2columns-right"><body>
-   <referenceBlock name="page.main.title">
-      <action method="setPageTitle">
-         <argument name="title" translate="true" xsi:type="string">RSS Feeds</argument>
-      </action>
-   </referenceBlock>
-   <referenceContainer name="content">
-      <block class="Magento\Rss\Block\Feeds" name="rss.feeds"/>
-   </referenceContainer>
-</body>
-</handle><layout id="authorizenet_directpost_payment_backendresponse"><container name="root">
-   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
-</container>
-</layout><layout id="authorizenet_directpost_payment_redirect"><container name="root">
-   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
-</container>
-</layout><layout id="authorizenet_directpost_payment_response"><container name="root">
-   <block class="Magento\Payment\Block\Transparent\Iframe" name="authorizenet_directpost_iframe" template="Magento_Payment::transparent/iframe.phtml"/>
-</container>
-</layout><handle id="checkout_index_index"><body>
-   <referenceBlock name="checkout.root">
-      <arguments>
-         <argument name="jsLayout" xsi:type="array">
-            <item name="components" xsi:type="array">
-               <item name="checkout" xsi:type="array">
-                  <item name="children" xsi:type="array">
-                     <item name="steps" xsi:type="array">
-                        <item name="children" xsi:type="array">
-                           <item name="billing-step" xsi:type="array">
-                              <item name="component" xsi:type="string">uiComponent</item>
-                              <item name="children" xsi:type="array">
-                                 <item name="payment" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                       <item name="renders" xsi:type="array">
-                                          <item name="children" xsi:type="array">
-                                             <item name="authorizenet" xsi:type="array">
-                                                <item name="component" xsi:type="string">Magento_Authorizenet/js/view/payment/authorizenet</item>
-                                                <item name="methods" xsi:type="array">
-                                                   <item name="authorizenet_directpost" xsi:type="array">
-                                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
-                                                   </item>
-                                                </item>
-                                             </item>
-                                          </item>
-                                       </item>
-                                    </item>
-                                 </item>
-                              </item>
-                           </item>
-                        </item>
-                     </item>
-                  </item>
-               </item>
-            </item>
-         </argument>
-      </arguments>
-   </referenceBlock>
-</body>
 </handle><handle id="sendfriend_product_send" layout="1column"><body>
    <referenceBlock name="page.main.title">
       <action method="setPageTitle">
@@ -5112,6 +5132,21 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
       <block class="Magento\Shipping\Block\Tracking\Popup" name="shipping.tracking.popup" template="tracking/popup.phtml"/>
    </referenceContainer>
 </body>
+</handle><handle id="customer_account_index"><head>
+   <script src="Icube_City/js/jquery.icube.separator.customeraddress.js"/>
+</head>
+</handle><handle id="customer_address_form"><head>
+   <css src="Icube_City::css/isloadingajax.css"/>
+   <script src="Icube_City/js/citykecamatancustomer.js"/>
+</head>
+<body>
+   <referenceContainer name="content">
+      <block class="Magento\Framework\View\Element\Template" name="city.ajaxloader" template="Icube_City::loader-page.phtml" before="-"/>
+   </referenceContainer>
+</body>
+</handle><handle id="customer_address_index"><head>
+   <script src="Icube_City/js/jquery.icube.separator.customeraddress.js"/>
+</head>
 </handle><handle id="swagger_index_index" layout="1column" label="qwerty"><head>
    <title>Swagger UI</title>
    <css src="Magento_Swagger::swagger-ui/css/typography.css" media="screen" rel="stylesheet" type="text/css"/>
@@ -5186,26 +5221,6 @@ a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550742774;s:6:"expire";i:9999999999;s:4:"t
    <referenceBlock name="product.info.options.wrapper">
       <block class="Magento\Swatches\Block\Product\Renderer\Configurable" name="product.info.options.swatches" as="swatch_options" before="-"/>
    </referenceBlock>
-</body>
-</handle><handle id="checkout_onepage_success"><body>
-   <referenceContainer name="content">
-      <block class="Magento\GoogleAdwords\Block\Code" name="google.adwords.code" template="code.phtml"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_category_view"><body>
-   <referenceContainer name="after.body.start">
-      <block class="Magento\GoogleOptimizer\Block\Code\Category" before="-" name="googleoptimizer.experiment.script"/>
-   </referenceContainer>
-</body>
-</handle><handle id="catalog_product_view"><body>
-   <referenceContainer name="after.body.start">
-      <block class="Magento\GoogleOptimizer\Block\Code\Product" before="-" name="googleoptimizer.experiment.script"/>
-   </referenceContainer>
-</body>
-</handle><handle id="cms_page_view"><body>
-   <referenceContainer name="after.body.start">
-      <block class="Magento\GoogleOptimizer\Block\Code\Page" before="-" name="googleoptimizer.experiment.script"/>
-   </referenceContainer>
 </body>
 </handle><handle id="checkout_cart_index"><body>
    <referenceBlock name="checkout.cart.shipping">

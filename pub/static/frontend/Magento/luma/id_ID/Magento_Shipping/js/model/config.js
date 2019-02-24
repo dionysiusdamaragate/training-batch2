@@ -1,0 +1,1 @@
+/home/cloudpanel/htdocs/freshmage/vendor/magento/module-shipping/view/frontend/web/js/model/config.js

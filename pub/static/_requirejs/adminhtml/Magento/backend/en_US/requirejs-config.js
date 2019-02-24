@@ -4,6 +4,22 @@
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+/*eslint no-unused-vars: 0*/
+var config = {
+    map: {
+        '*': {
+            'mediaUploader':  'Magento_Backend/js/media-uploader'
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 
 var config = {
     "waitSeconds": 0,
@@ -139,22 +155,6 @@ require.config(config);
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-/*eslint no-unused-vars: 0*/
-var config = {
-    map: {
-        '*': {
-            'mediaUploader':  'Magento_Backend/js/media-uploader'
-        }
-    }
-};
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
 
 var config = {
     paths: {
@@ -246,36 +246,6 @@ require.config(config);
  */
 
 var config = {
-    map: {
-        '*': {
-            rolesTree: 'Magento_User/js/roles-tree'
-        }
-    } 
-};
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
-    map: {
-        '*': {
-            orderEditDialog: 'Magento_Sales/order/edit/message'
-        }
-    }
-};
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
     paths: {
         'ui/template': 'Magento_Ui/templates'
     },
@@ -304,7 +274,52 @@ require.config(config);
 var config = {
     map: {
         '*': {
+            orderEditDialog: 'Magento_Sales/order/edit/message'
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
+            rolesTree: 'Magento_User/js/roles-tree'
+        }
+    } 
+};
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
             groupedProduct: 'Magento_GroupedProduct/js/grouped-product'
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
+            fptAttribute: 'Magento_Weee/js/fpt-attribute'
         }
     }
 };
@@ -332,14 +347,16 @@ require.config(config);
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
+/*eslint no-unused-vars: 0*/
 var config = {
     map: {
         '*': {
-            fptAttribute: 'Magento_Weee/js/fpt-attribute'
+            newVideoDialog:  'Magento_ProductVideo/js/new-video-dialog',
+            openVideoModal:  'Magento_ProductVideo/js/video-modal'
         }
     }
 };
+
 require.config(config);
 })();
 (function() {
@@ -355,23 +372,6 @@ var config = {
         }
     }
 };
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
-/*eslint no-unused-vars: 0*/
-var config = {
-    map: {
-        '*': {
-            newVideoDialog:  'Magento_ProductVideo/js/new-video-dialog',
-            openVideoModal:  'Magento_ProductVideo/js/video-modal'
-        }
-    }
-};
-
 require.config(config);
 })();
 (function() {

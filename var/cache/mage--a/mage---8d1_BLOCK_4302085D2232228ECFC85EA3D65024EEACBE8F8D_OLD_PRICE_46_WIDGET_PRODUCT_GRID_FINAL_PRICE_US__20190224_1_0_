@@ -1,0 +1,14 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1550989801;s:6:"expire";i:1550993401;s:4:"tags";s:66:"8d1_BLOCK_HTML,8d1_CATALOG_PRODUCT_46,8d1_CATALOG_PRODUCT,8d1_MAGE";}
+<div class="price-box price-final_price" data-role="priceBox" data-product-id="46">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+        <span  id="old-price-46-widget-product-grid"                data-price-amount="14"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+        >
+        <span class="price">US$14,00</span>    </span>
+        </span>
+
+</div>

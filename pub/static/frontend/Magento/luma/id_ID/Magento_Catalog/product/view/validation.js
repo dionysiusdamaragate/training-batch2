@@ -1,0 +1,1 @@
+/home/cloudpanel/htdocs/freshmage/vendor/magento/module-catalog/view/frontend/web/product/view/validation.js

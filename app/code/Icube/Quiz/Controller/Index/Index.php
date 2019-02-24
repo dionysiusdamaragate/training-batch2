@@ -21,9 +21,9 @@ class Index extends Action
 	{
 		// echo 'tes';
 		// die('Icube training controller!');
-		$resultPage = $this->resultPageFactory->create();
-        return $resultPage;
-		
+		 $resultPage = $this->resultPageFactory->create();
+		 return $resultPage;
+				
 	}
 
 }

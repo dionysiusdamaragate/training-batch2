@@ -1,0 +1,1 @@
+/home/cloudpanel/htdocs/freshmage/lib/web/magnifier/magnify.js
