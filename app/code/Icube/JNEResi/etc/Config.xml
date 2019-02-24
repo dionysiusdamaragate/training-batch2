@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<config xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation = "urn:magento:module:Magneto_Store:etc/config.xsd">
+	<default>
+		<jne_setting>
+			<general>
+				<url_awb></url_awb>
+				<api_key></api_key>
+				<port></port>
+				<username></username>
+				<olshop_customer></olshop_customer>
+				<oshop_region></oshop_region>
+				<olshop_branch></olshop_branch>
+				<olshop_shipper_city></olshop_shipper_city>
+				<olshop_shipper_zip></olshop_shipper_zip>
+				<olshop_shipper_phone></olshop_shipper_phone>
+				<olshop_shipper_add1></olshop_shipper_add1>
+				<olshop_shipper_add2></olshop_shipper_add2>
+				<olshop_shipper_orig></olshop_shipper_orig>
+				<olshop_shipper_name></olshop_shipper_name>
+			</general>
+		</jne_setting>
+	</default>
