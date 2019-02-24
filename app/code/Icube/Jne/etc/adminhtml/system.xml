@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="icube" translate="label" sortOrder="10">
+            <label>JNE RESI</label>
+        </tab>
+        <section id="jne" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Setting API</label>
+            <tab>icube</tab>
+            <resource>Icube_Jne::jne_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="url_awb" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>URL AWB</label>
+                </field>
+                <field id="api_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>API KEY</label>
+                </field>
+                <field id="username" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Username</label>
+                </field>
+                <field id="olshop_customer" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Customer</label>
+                </field>
+                <field id="olshop_region" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Region</label>
+                </field>
+                <field id="olshop_branch" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Branch</label>
+                </field>
+                <field id="port" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>PORT</label>
+                </field>
+                <field id="olshop_shipper_city" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper City</label>
+                </field>
+                <field id="olshop_shipper_zip" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Zip</label>
+                </field>
+                <field id="olshop_shipper_phone" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Phone</label>
+                </field>
+                <field id="olshop_shipper_add1" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Address 1</label>
+                </field>
+                <field id="olshop_shipper_add2" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Address 2</label>
+                </field>
+                <field id="olshop_shipper_orig" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Origin</label>
+                </field>
+                <field id="olshop_shipper_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Olshop Shipper Name</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

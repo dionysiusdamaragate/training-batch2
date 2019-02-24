@@ -21,7 +21,7 @@ class Employee extends \Magento\Framework\View\Element\Template
 		return $result->getData('name');
 	}
 
-	public function getEMployeeCollection()
+	public function getEmployeeCollection()
 	{
 		$result = $this->employeeFactory->create();
 		$collection = $result->getCollection();

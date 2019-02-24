@@ -1,0 +1,32 @@
+<h1><?php echo __('test') ?></h1>
+<?php
+$username = 'nugraha';
+$password = 'admin123';
+$token_url = 'http://training.local/index.php/rest/V1/integration/admin/token';
+
+$ch = curl_init();
+$data = array("username" => $username, "password" => $password);
+$data_string = json_encode($data);
+
+$ch = curl_init($token_url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+   'Content-Type: application/json',
+   'Content-Length: ' . strlen($data_string))
+   );
+$token = curl_exec($ch);
+curl_close($ch);
+
+$ch = curl_init('http://training.local/index.php/rest/V1/products/?searchCriteria[page_size]=100');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+   'Content-Type: application/json',
+   'Authorization: Bearer ' . $token
+));
+$url = curl_exec($ch);
+curl_close($ch);
+
+
+var_dump($url);
