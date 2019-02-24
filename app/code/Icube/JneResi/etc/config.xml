@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <jne>
+            <general>
+                <url_awb>url awb</url_awb>
+                <api_key>api key</api_key>
+                <username>username</username>
+                <price>0.00</price>
+                <olshop_customer>customer name</olshop_customer>
+                <olshop_region>region olshop</olshop_region>
+                <olshop_branch>branch olshop</olshop_branch>
+                <port>port</port>
+                <olshop_shipper_city>shipper city</olshop_shipper_city>
+                <olshop_shipper_zip>zip code</olshop_shipper_zip>
+                <olshop_shipper_phone>shipper phone</olshop_shipper_phone>
+                <olshop_shipper_add1>shipper add 1</olshop_shipper_add1>
+                <olshop_shipper_add2>shipper add 2</olshop_shipper_add2>
+                <olshop_shipper_orig>shipper origin</olshop_shipper_orig>
+                <olshop_shipper_name>shipper name</olshop_shipper_name>
+            </general>
+        </jne>
+    </default>
+</config>

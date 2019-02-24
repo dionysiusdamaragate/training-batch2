@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="invoice_save">
+        <observer name="invoice" instance="Icube\JneResi\Observer\Invoice" />
+    </event>
+</config>
